@@ -1,19 +1,15 @@
 ---
 layout: page
-title: galleries
+title: art
+permalink: /art
 ---
 <section class="c-archives">
   <link rel="shortcut icon" href="">
   <ul class="c-archives__list">
-  {% assign shuffled = site.posts | sample: 1000 %}
-  {% for post in shuffled %}
-
+  {% for post in site.categories.art  %}
     <li class="c-archives__item" >
     <a href="{{ post.url | prepend: site.baseurl }}" style="width: 100%;">
       <div style="display: flex; justify-content: space-evenly; align-items: center; flex-wrap: wrap;">
-      <div>
-		  <h3> {{ post.categories }} </h3>
-	  </div>
       <div style="flex-grow: 1; max-width: 25%; min-width: 125px; margin: 1em;">
       <img src="{{ site.url }}{{ site.baseurl }}/assets/{{ post.artist }}/{{ post.sample }}" alt="{{ post.author }}" style="height: 10em; display: block; margin-left: auto; margin-right: auto;">
       </div>
@@ -31,7 +27,7 @@ title: galleries
       </div>
     </div>
     </a>
-	<li>
+    </li>
   {% endfor %}
   </ul>
 </section>

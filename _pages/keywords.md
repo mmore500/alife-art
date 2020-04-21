@@ -1,14 +1,23 @@
 ---
 layout: page
-title: galleries
+title: keywords
+permalink: /keywords
 ---
+
 <section class="c-archives">
   <link rel="shortcut icon" href="">
-  <ul class="c-archives__list">
-  {% assign shuffled = site.posts | sample: 1000 %}
-  {% for post in shuffled %}
 
-    <li class="c-archives__item" >
+{% for tag in site.tags %}
+
+
+  <h2 class="c-archives__year" id="{{ tag[0] }}-ref">
+    {{ tag[0] }}
+  </h2>
+  <ul class="c-archives__list">
+
+  {% for post in site.posts %}
+  {% if post.tags contains tag[0] %}
+  <li class="c-archives__item" >
     <a href="{{ post.url | prepend: site.baseurl }}" style="width: 100%;">
       <div style="display: flex; justify-content: space-evenly; align-items: center; flex-wrap: wrap;">
       <div>
@@ -31,7 +40,13 @@ title: galleries
       </div>
     </div>
     </a>
-	<li>
+	</li>
+  {% endif %}
   {% endfor %}
+
   </ul>
+
+{% endfor %}
+
 </section>
+

@@ -1,15 +1,14 @@
 # Site settings
-title: "Paper Jekyll Theme"
-description: > 
-  Write a description of your website here.
+title: "Alife 2020 Art"
+description: "Art and Artistic Visualizations"
 
 author: Johnny Appleseed
 email: johnny@appleseed.com
 twitter_username: _HairForceOne
 github_username: mkchoi212
 
-baseurl: "/paper-jekyll-theme" # the subpath of your site, e.g. /blog
-url: "https://deadbeef.me" # the base hostname & protocol for your site
+baseurl: "/alife-art" # the subpath of your site, e.g. /blog
+url: "https://mmore500.com" # the base hostname & protocol for your site
 
 google_analytics_id: UA-1111111111-1
 disqus_id:
@@ -17,7 +16,7 @@ disqus_id:
 # Build settings
 include: [_pages]
 markdown: kramdown
-permalink: /:year/:month/:title.html
+permalink: /:title.html
 
 sass:
     style: compressed

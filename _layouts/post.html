@@ -4,7 +4,7 @@ layout: page
 <article class="c-article">
   <header class="c-article__header">
     <h1 class="c-article__title">{{ page.title }}</h1>
-    <p class="c-article__time"><time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%b %-d, %Y" }}</time></p>
+	<p class="c-article__time">{{ site.data.artists[page.artist].name }}</p>
   </header>
   <!-- Post Tags -->
   <ul class="c-tags">
@@ -13,10 +13,11 @@ layout: page
     {% endfor %}
   </ul>
   <div class="c-article__main">
+	  <img src="{{ site.url }}{{ site.baseurl }}/assets/{{ page.artist }}/{{ page.sample }}">
     {{ content }}
   </div>
   <!-- Previous / Next Buttons -->
-  <div class="pagenav">
+<!--  <div class="pagenav">
     {% if page.previous.url %}
     <div class="wrapper" id="left">
       <small><b>Previous</b> {{page.previous.date | date: "%b %-d, %Y"}}</small>
@@ -31,7 +32,7 @@ layout: page
       <a class="no-hov" href="{{ page.next.url | prepend: site.baseurl }}">{{page.next.title}} &raquo;</a>
     </div>
     {% endif %}
-  </div>
+</div> -->
   <!-- Disqus comments view -->
   {% if page.comments != false and site.disqus_id %}
   <div class="post-disqus">

@@ -1,13 +1,23 @@
 ---
 layout: page
-title: galleries
+title: artists
+permalink: /artists
 ---
+
 <section class="c-archives">
   <link rel="shortcut icon" href="">
-  <ul class="c-archives__list">
-  {% assign shuffled = site.posts | sample: 1000 %}
-  {% for post in shuffled %}
 
+{% for artist in site.data.artists %}
+
+  <h2 class="c-archives__year" id="{{ artist[1].name }}-ref">
+    {{ artist[1].name }}
+  </h2>
+
+  <ul class="c-archives__list">
+
+  {% assign selected = site.posts | where:"artist",artist[0] %}
+
+  {% for post in selected %}
     <li class="c-archives__item" >
     <a href="{{ post.url | prepend: site.baseurl }}" style="width: 100%;">
       <div style="display: flex; justify-content: space-evenly; align-items: center; flex-wrap: wrap;">
@@ -31,7 +41,13 @@ title: galleries
       </div>
     </div>
     </a>
-	<li>
+	</li>
+
   {% endfor %}
+
   </ul>
+
+{% endfor %}
+
 </section>
+
